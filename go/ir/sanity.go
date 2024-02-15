@@ -107,7 +107,7 @@ func (s *sanity) checkInstr(idx int, instr Instruction) {
 		} else {
 			prev := s.block.Instrs[idx-1]
 			switch prev.(type) {
-			case *Phi, *Sigma:
+			case *Phi, *Sigma, *Load, *Store:
 			default:
 				s.errorf("Phi instruction follows a non-Phi, non-Sigma: %T", prev)
 			}
